@@ -1,0 +1,11 @@
+c:\users\tess\documents\visual studio 2015\Projects\maxnetetst\maxnetetst\bin\Release\maxnetetst.dll
+c:\users\tess\documents\visual studio 2015\Projects\maxnetetst\maxnetetst\bin\Release\maxnetetst.pdb
+c:\users\tess\documents\visual studio 2015\Projects\maxnetetst\maxnetetst\bin\Release\maxnetetst.xml
+c:\users\tess\documents\visual studio 2015\Projects\maxnetetst\maxnetetst\bin\Release\Autodesk.Max.dll
+c:\users\tess\documents\visual studio 2015\Projects\maxnetetst\maxnetetst\bin\Release\Autodesk.Max.xml
+c:\users\tess\documents\visual studio 2015\Projects\maxnetetst\maxnetetst\obj\Release\maxnetetst.vbprojResolveAssemblyReference.cache
+c:\users\tess\documents\visual studio 2015\Projects\maxnetetst\maxnetetst\obj\Release\maxnetetst.Resources.resources
+c:\users\tess\documents\visual studio 2015\Projects\maxnetetst\maxnetetst\obj\Release\maxnetetst.vbproj.GenerateResource.Cache
+c:\users\tess\documents\visual studio 2015\Projects\maxnetetst\maxnetetst\obj\Release\maxnetetst.dll
+c:\users\tess\documents\visual studio 2015\Projects\maxnetetst\maxnetetst\obj\Release\maxnetetst.xml
+c:\users\tess\documents\visual studio 2015\Projects\maxnetetst\maxnetetst\obj\Release\maxnetetst.pdb

@@ -1,0 +1,9 @@
+c:\users\tess\documents\visual studio 2015\Projects\maxnetetst\maxnetetst\bin\x64\Release\maxnetetst.dll
+c:\users\tess\documents\visual studio 2015\Projects\maxnetetst\maxnetetst\bin\x64\Release\maxnetetst.pdb
+c:\users\tess\documents\visual studio 2015\Projects\maxnetetst\maxnetetst\bin\x64\Release\maxnetetst.xml
+c:\users\tess\documents\visual studio 2015\Projects\maxnetetst\maxnetetst\obj\x64\Release\maxnetetst.Resources.resources
+c:\users\tess\documents\visual studio 2015\Projects\maxnetetst\maxnetetst\obj\x64\Release\maxnetetst.vbproj.GenerateResource.Cache
+c:\users\tess\documents\visual studio 2015\Projects\maxnetetst\maxnetetst\obj\x64\Release\maxnetetst.dll
+c:\users\tess\documents\visual studio 2015\Projects\maxnetetst\maxnetetst\obj\x64\Release\maxnetetst.xml
+c:\users\tess\documents\visual studio 2015\Projects\maxnetetst\maxnetetst\obj\x64\Release\maxnetetst.pdb
+C:\Users\tess\documents\visual studio 2015\Projects\maxnetetst\maxnetetst\obj\x64\Release\maxnetetst.renderolup.resources
