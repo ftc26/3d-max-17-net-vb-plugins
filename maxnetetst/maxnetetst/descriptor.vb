@@ -7,10 +7,12 @@ Imports maxnetetst.render
 Imports maxnetetst.shader
 Imports ManagedServices
 
+
 #Region "descriptors"
 
 Public Class MyutilityClassDesc
     Inherits Plugins.ClassDesc2
+
 
     Public Overrides ReadOnly Property Category As String
         Get
@@ -50,6 +52,7 @@ End Class
 
 Public Class MyrenderClassDesc
     Inherits Plugins.ClassDesc2
+
 
     Public Overrides ReadOnly Property Category As String
         Get
@@ -93,28 +96,21 @@ End Class
 Public Class MyrenderShadeClassDesc
     Inherits Plugins.ClassDesc2
     Private m_global As IGlobal
-    Private m_paramBlockDesc As IParamBlockDesc2
-    Public ReadOnly Property ParamBlockDesc() As IParamBlockDesc2
-        Get
-            Return Me.m_paramBlockDesc
-        End Get
-    End Property
+    Friend ParamBlockDesc As IParamBlockDesc2
+    Friend classidd As IClass_ID
 
-    ' Public Sub New()
-    'Me.ParamBlockDesc = Me.Global.ParamBlockDesc2.Create(0, "Parameters",
-    '                                                     IntPtr.Zero, Me,
-    '                                                     ParamBlock2Flags.Version + ParamBlock2Flags.AutoConstruct + ParamBlock2Flags.AutoUi,
-    '                                                     ParamBlock2Flags, New Object() {1, 0})
-    '' Add parameter and specify name, type, flags, control id, default, minimum, and maximum values
-    'Me.ParamBlockDesc.AddParam(0, New Object() {"color", ParamType2.Float, ParamBlock2Flags.Animatable, 0, 0.5F, 0F,
-    '    1.0F})
-    'End Sub
+    Public Sub New(globals As IGlobal)
+        Me.m_global = globals
+        classidd = GlobalInterface.Instance.Class_ID.Create(&H67AC6F4C, &H6EE11439)
 
-    Public ReadOnly Property [Global]() As IGlobal
-        Get
-            Return Me.m_global
-        End Get
-    End Property
+        ParamBlockDesc = Me.m_global.ParamBlockDesc2.Create(0, "shaderParameters", IntPtr.Zero, Me, ParamBlock2Flags.Version Or ParamBlock2Flags.AutoConstruct Or ParamBlock2Flags.AutoUi, New Object() {1, 0})
+        ParamBlockDesc.AddParam(0, New Object() {"ColorAmount", ParamType2.Float, ParamBlock2Flags.Animatable, 0, 5.0F, 0.0F, 100.0F})
+        ParamBlockDesc.AddParam(1, New Object() {"Color", ParamType2.Rgba, ParamBlock2Flags.Animatable, 0, 0.5F, 0.0F, 1.0F}) ''
+        ParamBlockDesc.AddParam(2, New Object() {"SpecularAmount", ParamType2.Float, ParamBlock2Flags.Animatable, 0, 0.5F, 0.0F, 1.0F})
+        ParamBlockDesc.AddParam(3, New Object() {"SpecularColor", ParamType2.Rgba, ParamBlock2Flags.Animatable, 0, 0.5F, 0.0F, 1.0F})
+
+    End Sub
+
     Public Overrides ReadOnly Property Category As String
         Get
             Return "Scanline SkinShader"
@@ -124,8 +120,7 @@ Public Class MyrenderShadeClassDesc
 
     Public Overrides ReadOnly Property ClassID As IClass_ID
         Get
-            ClassID = GlobalInterface.Instance.Class_ID.Create(&H67AC6F4C, &H6EE11439)
-            Return ClassID
+            Return classidd
         End Get
     End Property
 
@@ -150,20 +145,9 @@ Public Class MyrenderShadeClassDesc
     End Property
 
     Public Overrides Function Create(loading As Boolean) As Object
-        Return New shader()
+        Return New shader(Me, m_global)
     End Function
 
-End Class
-
-#End Region
-
-#Region "param blocks"
-
-Public Class GlobalVariables
-    'Public Shared valid As IInterval
-
-    'Dim pb2 As IIParamBlock2 = Me.GetParamBlock(0)
-    'Dim pb2dc As IParamBlockDesc2 = pb2.Desc
 End Class
 
 #End Region
@@ -172,12 +156,13 @@ End Class
 
 Public NotInheritable Class AssemblyFunctions
     Private Sub New()
+
     End Sub
     Public Shared Sub AssemblyMain()
         Dim g = Autodesk.Max.GlobalInterface.Instance
         Dim i = g.COREInterface13
         i.AddClass(New MyrenderClassDesc)
-        i.AddClass(New MyrenderShadeClassDesc)
+        i.AddClass(New MyrenderShadeClassDesc(g))
         i.AddClass(New MyutilityClassDesc)
     End Sub
 

@@ -4,7 +4,7 @@ Public Class utility
     Inherits Plugins.UtilityObj
 
     Public Overrides Sub BeginEditParams(ip As IInterface, iu As IIUtil)
-
+        ip.AddRollupPage(0, "rollup", IntPtr.Zero, "", 0, 0, 0)
         ip.PushPrompt("mynetutility")
     End Sub
 

@@ -195,15 +195,19 @@ Public Class render
 
     Public Overrides Function CreateParamDialog(ir As IIRendParams, prog As Boolean) As IRendParamDlg
 
-        Dim pb As IIParamBlock2 = Me.GetParamBlock(0)
-        Dim gg = New System.Windows.Window()
-        gg.Content = New maxnetetst.renderolup()
-        gg.WindowStartupLocation = Windows.WindowStartupLocation.CenterOwner
-        gg.SizeToContent = Windows.SizeToContent.WidthAndHeight
-        Dim handler = New Windows.Interop.WindowInteropHelper(gg)
-        handler.Owner = ManagedServices.AppSDK.GetMaxHWND()
-        ManagedServices.AppSDK.ConfigureWindowForMax(gg)
-        gg.Show()
+        'Dim pb As IIParamBlock2 = Me.GetParamBlock(0)
+        'Dim gg = New System.Windows.Window()
+        'gg.Content = New maxnetetst.renderolup()
+        'gg.WindowStartupLocation = Windows.WindowStartupLocation.CenterOwner
+        'gg.SizeToContent = Windows.SizeToContent.WidthAndHeight
+        'Dim handler = New Windows.Interop.WindowInteropHelper(gg)
+        'handler.Owner = ManagedServices.AppSDK.GetMaxHWND()
+        'ManagedServices.AppSDK.ConfigureWindowForMax(gg)
+        'gg.Show()
+
+        ir.AddRollupPage(0, "rollup", ir.IRollup.Hwnd, "Myrender", 0, 0, 0)
+        ' Dim masterDlg As IIAutoMParamDlg = sdescriptor.CreateParamDlgs(hwMtlEdit, ir, Me)
+        'Return masterDlg
     End Function
 
     Public Overrides Function HasRequirement(requirement As Requirement) As Boolean
